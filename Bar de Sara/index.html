@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Validación de formulario con redirección</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+    function validarEntrada() {
+      var nombre = document.getElementById("nombre").value;
+      var apellido = document.getElementById("apellido").value;
+      var correo = document.getElementById("correo").value;
+
+      if (nombre !== "S" || apellido !== "S" || correo !== "S@gmail.com") {
+        alert("Los datos ingresados son incorrectos");
+        return false; // Evita el envío del formulario
+      }
+
+      // Redirecciona a "inicio.html" si los datos son correctos
+      window.location.href = "inicio.html";
+      return false; // Evita el envío del formulario (puede eliminarse si no deseas evitar el envío)
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">Formulario de validación</h5>
+        <form onsubmit="return validarEntrada()">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+
+          <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" id="apellido" name="apellido" required>
+          </div>
+
+          <div class="form-group">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" class="form-control" id="correo" name="correo" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
